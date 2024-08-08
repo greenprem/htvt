@@ -9,10 +9,17 @@ const path = require('path');
 const app = express();
 const secretKey = 'HTVTgreenprem';
 
+app.use(cors({
+    origin: '*', // Allow all origins (you can specify specific origins if needed)
+    methods: ['GET', 'POST'], // Allow specific methods
+    preflightContinue: false, // Do not pass the preflight response to the next handler
+    optionsSuccessStatus: 204 // Status code for successful OPTIONS requests
+  }));
+
 app.use(bodyParser.json());
 app.use(cors()); // Enable CORS for all routes
 
-mongoose.connect('mongodb://prakash34we1:gauzer7612@cluster0.lvigvny.mongodb.net/test', {
+mongoose.connect('mongodb+srv://tofunmiareoye:SPWRWDCWopNFHf10@htvt.4rkda.mongodb.net/?retryWrites=true&w=majority&appName=HTVT', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log('MongoDB connected'))
